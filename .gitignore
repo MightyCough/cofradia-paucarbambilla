@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Variables de entorno (claves de Firebase)
+.env
+.env.*
+!.env.example
+
+# Archivos de trabajo de Impeccable (capturas, revisiones, caché)
+.impeccable/
