@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>2 · Título arriba, danza debajo</title>
+<style>
+@font-face { font-family: Playfair; src: url("fonts/Playfair.ttf") format("truetype"); font-weight: 400 700; }
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: #000; color: #fff; font-family: system-ui, sans-serif; }
+.pagina { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; }
+header { display: flex; justify-content: flex-end; padding: 26px 40px 0; }
+nav { display: flex; gap: 32px; align-items: center; font-size: 13px; font-weight: 650; letter-spacing: .16em; }
+nav a { color: #fff; text-decoration: none; }
+nav .oro { color: #e2b340; }
+.texto {
+  flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 28px 20px 32px;
+}
+h1 {
+  margin: 0; max-width: 16ch;
+  font-family: Playfair, Georgia, serif; font-weight: 600; font-size: clamp(30px, 3.6vw, 48px);
+  line-height: 1.15; color: #e2b340;
+}
+p { max-width: 48ch; margin: 16px 0 26px; font-size: 17px; line-height: 1.45; }
+.btn {
+  background: #e2b340; color: #1c1406; text-decoration: none; font-weight: 700;
+  padding: 12px 22px; border-radius: 4px;
+}
+.foto { height: 48vh; background: url("danza.jpg") center 42% / cover no-repeat; }
+@media (max-width: 700px) {
+  header { padding: 18px 16px 0; }
+  nav { gap: 16px; font-size: 11px; letter-spacing: .1em; }
+  .foto { height: 42vh; }
+}
+</style>
+</head>
+<body>
+<div class="pagina">
+  <header>
+    <nav>
+      <a href="#">INICIO</a>
+      <a href="#">EXPLORA ▾</a>
+      <a class="oro" href="#">UNIRSE</a>
+    </nav>
+  </header>
+  <section class="texto">
+    <h1>Fe, Historia y Tradición que Danzan</h1>
+    <p>Descubre la magia de Los Negritos de Huánuco, en la Cofradía de Negritos “Niño Jesús de Paucarbambilla”</p>
+    <a class="btn" href="#">Explora la Historia</a>
+  </section>
+  <div class="foto" role="img" aria-label="La cuadrilla de negritos bailando en Huánuco"></div>
+</div>
+</body>
+</html>

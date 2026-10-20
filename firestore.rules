@@ -1,0 +1,55 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Postulaciones: el público solo puede CREAR una con los campos esperados.
+    // Nadie puede leer, editar ni borrar desde la web; el personal las revisa
+    // en la consola de Firebase.
+    match /postulaciones/{id} {
+      allow read, update, delete: if false;
+
+      allow create: if
+        request.resource.data.keys().hasOnly([
+          'nombres', 'apellidos', 'dni', 'telefono', 'correo', 'edad',
+          'rol', 'experiencia', 'motivo', 'acepta', 'estado', 'creadoEn'
+        ])
+        && request.resource.data.keys().hasAll([
+          'nombres', 'apellidos', 'dni', 'telefono', 'correo', 'edad',
+          'rol', 'motivo', 'acepta', 'estado', 'creadoEn'
+        ])
+        && request.resource.data.nombres is string
+        && request.resource.data.nombres.size() >= 2
+        && request.resource.data.nombres.size() <= 80
+        && request.resource.data.apellidos is string
+        && request.resource.data.apellidos.size() >= 2
+        && request.resource.data.apellidos.size() <= 80
+        && request.resource.data.dni.matches('^[0-9]{8}$')
+        && request.resource.data.telefono is string
+        && request.resource.data.telefono.size() >= 9
+        && request.resource.data.telefono.size() <= 20
+        && request.resource.data.correo is string
+        && request.resource.data.correo.size() <= 120
+        && request.resource.data.correo.matches('^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$')
+        && request.resource.data.edad is int
+        && request.resource.data.edad >= 10
+        && request.resource.data.edad <= 99
+        && request.resource.data.rol in [
+          'negrito_pampa', 'caporal', 'turco', 'dama', 'abanderado', 'corochano'
+        ]
+        && request.resource.data.get('experiencia', '') is string
+        && request.resource.data.get('experiencia', '').size() <= 600
+        && request.resource.data.motivo is string
+        && request.resource.data.motivo.size() >= 20
+        && request.resource.data.motivo.size() <= 1000
+        && request.resource.data.acepta == true
+        && request.resource.data.estado == 'nueva'
+        && request.resource.data.creadoEn == request.time;
+    }
+
+    // Todo lo demás queda cerrado.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

@@ -1,0 +1,759 @@
+.sorteo {
+  padding-bottom: clamp(4rem, 9vw, 7rem);
+}
+
+.sorteo__cabecera .seccion__titulo {
+  margin-bottom: 0.85rem;
+}
+
+.sorteo__introduccion {
+  max-width: 45rem;
+  margin: 0;
+  color: var(--tinta-suave);
+  font: 400 1.25rem / 1.55 var(--fuente-texto);
+}
+
+.sorteo__aviso {
+  display: grid;
+  justify-items: center;
+  gap: 0.7rem;
+  margin: clamp(2.75rem, 7vw, 5rem) auto 0;
+  padding-inline: var(--gutter);
+  text-align: center;
+}
+
+.sorteo__ornamento {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  width: min(100%, 16rem);
+  color: var(--oro-titulo);
+}
+
+.sorteo__ornamento span:first-child,
+.sorteo__ornamento span:last-child {
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(90deg, transparent, currentColor);
+}
+
+.sorteo__ornamento span:last-child {
+  background: linear-gradient(90deg, currentColor, transparent);
+}
+
+.sorteo__rombo {
+  width: 0.45rem;
+  height: 0.45rem;
+  flex: 0 0 0.45rem;
+  background: currentColor;
+  transform: rotate(45deg);
+}
+
+.sorteo__aviso-titulo {
+  position: relative;
+  margin: 0;
+  color: var(--oro-titulo);
+  font: 600 clamp(1.6rem, 4vw, 2.6rem) / 1.2 var(--fuente-hero);
+  letter-spacing: 0.2em;
+  text-wrap: balance;
+}
+
+.sorteo__brillo {
+  position: absolute;
+  inset: 0;
+  color: transparent;
+  pointer-events: none;
+}
+
+.sorteo__brillo span {
+  color: #fff4c7;
+  text-shadow: 0 0 0.85em rgb(255 249 218 / 0.95);
+  opacity: 0;
+}
+
+.sorteo__aviso-texto {
+  max-width: 38rem;
+  margin: 0;
+  color: var(--tinta-suave);
+  font: italic 1.15rem / 1.5 var(--fuente-texto);
+}
+
+.sorteo__cuenta {
+  display: grid;
+  justify-items: center;
+  gap: 0.65rem;
+  margin: clamp(2.75rem, 7vw, 5rem) auto 0;
+  text-align: center;
+}
+
+.sorteo__cuenta-titulo,
+.sorteo__fecha {
+  margin: 0;
+  color: var(--tinta-suave);
+}
+
+.sorteo__cuenta-titulo {
+  color: var(--oro-titulo);
+  font: 600 1rem / 1.3 var(--fuente-hero);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sorteo__reloj {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.35rem, 1.5vw, 1rem);
+}
+
+.sorteo__unidad-par {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(0.35rem, 1.5vw, 1rem);
+}
+
+.sorteo__separador {
+  color: var(--oro);
+  font: 600 1.7rem / 1 var(--fuente-hero);
+}
+
+.sorteo__unidad {
+  display: grid;
+  justify-items: center;
+  gap: 0.2rem;
+}
+
+.sorteo__numero {
+  display: flex;
+  min-height: 3rem;
+  overflow: hidden;
+  color: var(--oro-titulo);
+  font: 600 clamp(1.5rem, 5vw, 2.5rem) / 1.15 var(--fuente-hero);
+  font-variant-numeric: tabular-nums;
+}
+
+.sorteo__digito {
+  position: relative;
+  display: block;
+  width: 0.72em;
+  height: 1.15em;
+  overflow: hidden;
+}
+
+.sorteo__digito-actual,
+.sorteo__digito-entrante,
+.sorteo__digito-saliente {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+
+.sorteo__fecha {
+  font-size: 1.05rem;
+}
+
+.sorteo__boleto-principal {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 12rem;
+  max-width: 58rem;
+  min-height: 17rem;
+  margin: clamp(2.5rem, 7vw, 5rem) auto clamp(4rem, 9vw, 7rem);
+  overflow: hidden;
+  border: 1px solid #d6c8ad;
+  background: #ece3cf;
+  box-shadow: 0 1.2rem 2.8rem rgb(0 0 0 / 0.28), inset 0 0 0 0.35rem rgb(138 75 28 / 0.09);
+  color: #3b2412;
+}
+
+.sorteo__boleto-cuerpo {
+  display: grid;
+  align-content: center;
+  gap: 0.75rem;
+  min-width: 0;
+  padding: clamp(1.4rem, 5vw, 3.2rem);
+}
+
+.sorteo__boleto-cofradia {
+  margin: 0;
+  color: #563a23;
+  font: 600 0.8rem / 1.4 var(--fuente-hero);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sorteo__boleto-titulo {
+  color: #3b2412;
+  font: 600 clamp(1.5rem, 4vw, 2.5rem) / 1.2 var(--fuente-hero);
+}
+
+.sorteo__boleto-pie {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  padding-top: 1.15rem;
+  border-top: 1px solid rgb(59 36 18 / 0.25);
+  color: #3b2412;
+  font: 600 0.95rem / 1.4 var(--fuente-hero);
+}
+
+.sorteo__boleto-precio {
+  color: #8a4b1c;
+}
+
+.sorteo__talon {
+  position: relative;
+  display: grid;
+  place-items: center;
+  margin-block: 1.15rem;
+  border-left: 1px dashed rgb(59 36 18 / 0.55);
+}
+
+.sorteo__boleto-principal:hover .sorteo__talon {
+  animation: sorteo-corte 3.6s ease-in-out infinite;
+}
+
+.sorteo__talon::before {
+  position: absolute;
+  top: -1.15rem;
+  bottom: -1.15rem;
+  left: -0.45rem;
+  width: 0.9rem;
+  background: radial-gradient(circle at center, var(--negro) 0 0.28rem, transparent 0.31rem) center / 0.9rem 1.1rem repeat-y;
+  content: "";
+}
+
+.sorteo__sello {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 0.4rem;
+  width: 8rem;
+  height: 8rem;
+  border: 2px solid #8a4b1c;
+  border-radius: 50%;
+  outline: 1px solid rgb(138 75 28 / 0.55);
+  outline-offset: 0.3rem;
+  color: #8a4b1c;
+  transform: rotate(-12deg);
+}
+
+.sorteo__sello-texto {
+  font: 600 0.7rem / 1.3 var(--fuente-hero);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.sorteo__sello-centro {
+  font: 600 1.35rem / 1 var(--fuente-hero);
+  letter-spacing: 0.08em;
+}
+
+.sorteo__seccion {
+  margin-top: clamp(4rem, 9vw, 7rem);
+}
+
+.sorteo__seccion > .seccion__titulo {
+  margin-bottom: 2rem;
+}
+
+.sorteo__premios {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 1.25rem;
+}
+
+.sorteo__boleto-premio {
+  position: relative;
+  display: grid;
+  align-content: start;
+  justify-items: center;
+  min-width: 0;
+  min-height: 19rem;
+  padding: 1.5rem 1.25rem 1.8rem;
+  border: 1px solid #d6c8ad;
+  background: #ece3cf;
+  box-shadow: 0 0.7rem 1.8rem rgb(0 0 0 / 0.2), inset 0 0 0 0.28rem rgb(138 75 28 / 0.08);
+  color: #3b2412;
+  text-align: center;
+  transition: translate 0.35s var(--salida), rotate 0.35s var(--salida), box-shadow 0.35s var(--salida);
+}
+
+.sorteo__boleto-premio:hover,
+.sorteo__boleto-premio:focus-within {
+  translate: 0 -4px;
+  rotate: 2deg;
+  box-shadow: 0 1rem 2rem rgb(0 0 0 / 0.28), inset 0 0 0 0.28rem rgb(138 75 28 / 0.1);
+}
+
+.sorteo__boleto-premio::after {
+  position: absolute;
+  right: 0.7rem;
+  bottom: 0.55rem;
+  left: 0.7rem;
+  height: 0.45rem;
+  background: radial-gradient(circle at center, var(--negro) 0 0.2rem, transparent 0.23rem) left center / 0.9rem 0.45rem repeat-x;
+  content: "";
+}
+
+.sorteo__premio-categoria {
+  margin: 0;
+  color: #8a4b1c;
+  font: 600 0.85rem / 1.35 var(--fuente-hero);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.sorteo__premio-foto {
+  width: 100%;
+  height: 9rem;
+  margin-block: 1rem;
+  object-fit: cover;
+}
+
+.sorteo__regalo {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 9rem;
+  margin-block: 1rem;
+  color: #8a4b1c;
+  opacity: 0.38;
+}
+
+.sorteo__regalo svg {
+  width: 6rem;
+  height: 5.6rem;
+  overflow: visible;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3px;
+}
+
+.sorteo__premio-nombre {
+  color: #3b2412;
+  font: 600 1.2rem / 1.25 var(--fuente-hero);
+}
+
+.sorteo__premio-detalle,
+.sorteo__premio-cantidad,
+.sorteo__premio-pendiente {
+  margin: 0.45rem 0 0;
+  color: #563a23;
+  font-size: 1rem;
+}
+
+.sorteo__premio-pendiente {
+  font-style: italic;
+}
+
+.sorteo__pasos {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sorteo__pasos-contenedor {
+  position: relative;
+}
+
+.sorteo__hilo {
+  position: absolute;
+  top: 1.35rem;
+  right: 9%;
+  left: 9%;
+  height: 1px;
+  background: var(--oro);
+  transform-origin: left center;
+}
+
+@keyframes sorteo-corte {
+  0%,
+  100% { translate: 0; }
+  50% { translate: 6px; }
+}
+
+.sorteo__paso {
+  position: relative;
+  display: grid;
+  align-content: start;
+  justify-items: center;
+  gap: 0.8rem;
+  text-align: center;
+}
+
+.sorteo__nodo {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 2px solid var(--oro-titulo);
+  border-radius: 50%;
+  background: var(--negro);
+  color: var(--oro-titulo);
+  font: 600 1rem / 1 var(--fuente-hero);
+}
+
+.sorteo__paso-texto h3 {
+  color: var(--oro-titulo);
+  font: 600 1rem / 1.3 var(--fuente-hero);
+}
+
+.sorteo__paso-texto p {
+  margin: 0.5rem 0 0;
+  color: var(--tinta-suave);
+  font-size: 1.05rem;
+  line-height: 1.45;
+}
+
+.sorteo__pago {
+  max-width: 48rem;
+  margin: 3rem auto 0;
+  padding: clamp(1.2rem, 4vw, 2rem);
+  border: 1px solid var(--linea);
+  background: var(--negro-alto);
+  text-align: center;
+}
+
+.sorteo__pago h3 {
+  color: var(--oro-titulo);
+  font: 600 1.2rem / 1.3 var(--fuente-hero);
+}
+
+.sorteo__tesoreria {
+  margin: 0.75rem auto 0;
+  color: var(--tinta-suave);
+}
+
+.sorteo__metodos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.sorteo__metodo {
+  display: grid;
+  justify-items: center;
+  gap: 0.5rem;
+  min-width: min(100%, 13rem);
+  padding: 0.75rem;
+  border: 1px solid var(--linea);
+}
+
+.sorteo__metodo p {
+  margin: 0;
+  color: var(--tinta);
+}
+
+.sorteo__metodo strong {
+  color: var(--oro-titulo);
+  font-family: var(--fuente-hero);
+}
+
+.sorteo__copiar {
+  min-height: 2.75rem;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid var(--oro);
+  border-radius: 3px;
+  background: transparent;
+  color: var(--tinta);
+  font: 600 0.8rem / 1.2 var(--fuente-hero);
+  cursor: pointer;
+}
+
+.sorteo__copiar:hover {
+  background: var(--oro);
+  color: var(--negro);
+}
+
+.sorteo__copia {
+  min-height: 1.4em;
+  margin: 0.75rem 0 0;
+  color: var(--oro-titulo);
+  font-size: 0.95rem;
+}
+
+.sorteo__accion {
+  display: grid;
+  justify-items: center;
+  gap: 0.65rem;
+  margin-top: clamp(3.5rem, 8vw, 6rem);
+  text-align: center;
+}
+
+.sorteo__participar {
+  min-width: min(100%, 17rem);
+  min-height: 3rem;
+  padding: 0.7rem 1.5rem;
+  border: 1px solid var(--linea);
+  border-radius: 3px;
+  background: var(--negro-alto);
+  color: var(--tinta-suave);
+  font: 600 0.85rem / 1.3 var(--fuente-hero);
+  letter-spacing: 0.08em;
+  cursor: not-allowed;
+}
+
+.sorteo__accion p {
+  margin: 0;
+  color: var(--tinta-suave);
+}
+
+.sorteo__preguntas {
+  max-width: 55rem;
+  margin-inline: auto;
+}
+
+.sorteo__lista-preguntas {
+  border-top: 1px solid var(--linea);
+}
+
+.sorteo__pregunta {
+  border-bottom: 1px solid var(--linea);
+}
+
+.sorteo__pregunta summary {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 3.5rem;
+  padding: 0.7rem 0.25rem;
+  color: var(--tinta);
+  font: 600 1rem / 1.35 var(--fuente-hero);
+  cursor: pointer;
+  list-style: none;
+}
+
+.sorteo__pregunta summary::-webkit-details-marker {
+  display: none;
+}
+
+.sorteo__mas {
+  position: relative;
+  flex: 0 0 1.25rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--oro-titulo);
+  transition: rotate 0.25s var(--salida);
+}
+
+.sorteo__mas::before,
+.sorteo__mas::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1rem;
+  height: 2px;
+  background: currentColor;
+  content: "";
+  translate: -50% -50%;
+}
+
+.sorteo__mas::after {
+  rotate: 90deg;
+}
+
+.sorteo__pregunta[open] .sorteo__mas {
+  rotate: 45deg;
+}
+
+.sorteo__respuesta {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s var(--salida);
+}
+
+.sorteo__pregunta[open] .sorteo__respuesta {
+  grid-template-rows: 1fr;
+}
+
+.sorteo__respuesta > div {
+  overflow: hidden;
+}
+
+.sorteo__respuesta p {
+  margin: 0;
+  padding: 0 2.5rem 1rem 0.25rem;
+  color: var(--tinta-suave);
+}
+
+.sorteo__volver {
+  margin: 3.5rem auto 0;
+  color: var(--tinta-suave);
+  text-align: center;
+}
+
+.sorteo__volver a {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  color: var(--oro-titulo);
+}
+
+.sorteo--tinta [data-sorteo-tinta] {
+  opacity: 0;
+  filter: blur(4px);
+  transform: translateY(14px);
+}
+
+.sorteo--revelando .sorteo__boleto-principal,
+.sorteo--revelando .sorteo__boleto-premio {
+  opacity: 0;
+}
+
+.sorteo--revelando .sorteo__boleto-principal {
+  transform: translateY(-4rem) rotate(-5deg);
+}
+
+.sorteo--revelando .sorteo__boleto-premio {
+  transform: translateY(30px);
+}
+
+.sorteo--revelando .sorteo__hilo {
+  transform: scaleX(0);
+}
+
+.sorteo__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 700px) {
+  .sorteo__boleto-principal {
+    grid-template-columns: minmax(0, 1fr) 7rem;
+  }
+
+  .sorteo__boleto-cuerpo {
+    padding: 1.25rem;
+  }
+
+  .sorteo__boleto-cofradia {
+    font-size: 0.65rem;
+  }
+
+  .sorteo__boleto-pie {
+    font-size: 0.8rem;
+  }
+
+  .sorteo__sello {
+    width: 5rem;
+    height: 5rem;
+    outline-offset: 0.2rem;
+  }
+
+  .sorteo__sello-texto {
+    font-size: 0.52rem;
+  }
+
+  .sorteo__sello-centro {
+    font-size: 1rem;
+  }
+
+  .sorteo__pasos {
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+  }
+
+  .sorteo__hilo {
+    top: 1.35rem;
+    right: auto;
+    bottom: 1.35rem;
+    left: 1.35rem;
+    width: 1px;
+    height: auto;
+    transform-origin: top center;
+  }
+
+  .sorteo__paso {
+    grid-template-columns: 2.75rem minmax(0, 1fr);
+    justify-items: start;
+    gap: 1rem;
+    text-align: left;
+  }
+
+  .sorteo__paso-texto {
+    padding-top: 0.25rem;
+  }
+
+  .sorteo--revelando .sorteo__hilo {
+    transform: scaleY(0);
+  }
+}
+
+@media (max-width: 400px) {
+  .sorteo__reloj,
+  .sorteo__unidad-par {
+    gap: 0.25rem;
+  }
+
+  .sorteo__numero {
+    font-size: 1.35rem;
+  }
+
+  .sorteo__unidad-etiqueta {
+    font-size: 0.8rem;
+  }
+
+  .sorteo__boleto-principal {
+    grid-template-columns: minmax(0, 1fr) 5.75rem;
+  }
+
+  .sorteo__boleto-cuerpo {
+    padding: 1rem 0.85rem;
+  }
+
+  .sorteo__sello {
+    width: 4.9rem;
+    height: 4.9rem;
+    gap: 0.2rem;
+  }
+
+  .sorteo__sello-texto {
+    font-size: 0.48rem;
+    letter-spacing: 0.04em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sorteo__boleto-principal:hover .sorteo__talon {
+    animation: none;
+  }
+
+  .sorteo__boleto-premio,
+  .sorteo__mas,
+  .sorteo__respuesta {
+    transition: none;
+  }
+
+  .sorteo--tinta [data-sorteo-tinta],
+  .sorteo--revelando .sorteo__boleto-principal,
+  .sorteo--revelando .sorteo__boleto-premio,
+  .sorteo--revelando .sorteo__hilo {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+}

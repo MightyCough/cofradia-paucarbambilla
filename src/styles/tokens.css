@@ -1,0 +1,23 @@
+/* Mundo visual: foto del desfile a pantalla completa, oro sobre el negro cálido de la máscara. */
+:root {
+  /* Fondo y texto (tintados hacia el cálido del escudo, nunca gris puro) */
+  --negro: #120c0b;
+  --negro-alto: #1d1513;
+  --linea: #4a3934;
+  --tinta: #f8f2ea;
+  --tinta-suave: #dccfc5;
+
+  --oro: #c99a2e;
+  --oro-titulo: #e2b340;
+  --error: #ff9a86;
+
+  /* Tipografía: Cinzel (títulos e interfaz) y EB Garamond (texto) */
+  --fuente-display: 'Cinzel', Georgia, serif;
+  --fuente-hero: 'Cinzel', Georgia, serif;
+  --fuente-texto: 'EB Garamond', Georgia, serif;
+
+  --salida: cubic-bezier(0.16, 1, 0.3, 1);
+  --gutter: clamp(1rem, 4vw, 3rem);
+  --alto-cabecera: 4.75rem;
+  --ancho-lectura: 68ch;
+}

@@ -1,0 +1,342 @@
+.relato {
+  padding-bottom: clamp(3rem, 8vw, 7rem);
+}
+
+.relato__encabezado {
+  padding: clamp(4rem, 9vw, 7rem) var(--gutter) 2rem;
+  text-align: center;
+}
+
+.relato__encabezado h1 {
+  color: var(--oro-titulo);
+  font: 600 clamp(2.2rem, 5vw, 3.6rem)/1.12 var(--fuente-hero);
+}
+
+.relato__encabezado > p {
+  margin: 1rem auto 0;
+  color: var(--tinta-suave);
+  font: italic 1.2rem/1.5 var(--fuente-texto);
+}
+
+.relato__desliza {
+  display: grid;
+  justify-items: center;
+  gap: 0.3rem;
+  margin-top: 2rem;
+  color: var(--oro);
+  font: 600 0.65rem/1.2 var(--fuente-hero);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.relato__desliza svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5px;
+}
+
+.relato__cuerpo {
+  display: grid;
+  width: min(calc(100% - var(--gutter) - var(--gutter)), 76rem);
+  margin-inline: auto;
+  gap: clamp(3rem, 6vw, 6rem);
+}
+
+.relato__columna-texto {
+  min-width: 0;
+}
+
+.relato__capitulos {
+  position: relative;
+}
+
+.relato__hilo {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 1.25rem;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.relato__hilo-base,
+.relato__hilo-oro {
+  fill: none;
+  stroke-linecap: round;
+  stroke-width: 1.5px;
+  vector-effect: non-scaling-stroke;
+}
+
+.relato__hilo-base {
+  stroke: var(--linea);
+}
+
+.relato__hilo-oro {
+  stroke: var(--oro);
+}
+
+.relato__lista {
+  position: relative;
+}
+
+.relato__capitulo {
+  position: relative;
+  display: flex;
+  min-height: 90vh;
+  align-items: center;
+  padding-left: 2.5rem;
+}
+
+.relato__visual-capitulo {
+  position: relative;
+  width: 100%;
+  margin-bottom: 1.8rem;
+}
+
+.relato__marco {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  border: 1px solid rgb(226 179 64 / .25);
+  border-radius: 4px;
+  background: var(--negro-alto);
+  box-shadow: 0 0.75rem 2rem rgb(0 0 0 / .28);
+}
+
+.relato__capa {
+  position: relative;
+}
+
+.relato__capa::after {
+  position: absolute;
+  z-index: 1;
+  inset: 45% 0 0;
+  background: linear-gradient(transparent, rgb(18 12 11 / .72));
+  content: '';
+  pointer-events: none;
+}
+
+.relato__marcador {
+  display: flex;
+  aspect-ratio: auto !important;
+}
+
+.relato__imagen,
+.relato__marcador {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.relato__escudo {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1.2rem, 3vh, 2rem);
+  background: var(--negro-alto);
+}
+
+.relato__escudo > img {
+  display: block;
+  max-width: 70%;
+  max-height: 70%;
+  border-radius: 4px;
+  object-fit: contain;
+}
+
+.relato__fecha {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--oro-titulo);
+}
+
+.relato__fecha span {
+  width: clamp(1.5rem, 4vw, 3rem);
+  height: 1px;
+  background: var(--oro);
+}
+
+.relato__fecha p {
+  margin: 0;
+  font: 600 clamp(1.4rem, 2.6vw, 2rem)/1.2 var(--fuente-hero);
+  letter-spacing: 0.2em;
+}
+
+.relato__roles {
+  position: absolute;
+  z-index: 2;
+  right: 1rem;
+  bottom: 0.8rem;
+  left: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.65rem;
+  margin: 0;
+  color: var(--tinta);
+  font: 600 clamp(0.8rem, 1.5vw, 1.1rem)/1.4 var(--fuente-hero);
+  letter-spacing: 0.06em;
+  text-shadow: 0 1px 8px rgb(0 0 0 / .9);
+}
+
+.relato--animado .relato__roles {
+  opacity: 0;
+}
+
+.relato--animado .relato__capitulo--activo .relato__roles,
+.relato--animado .relato__capa--activa .relato__roles {
+  opacity: 1;
+}
+
+.relato__roles span + span::before {
+  padding-right: 0.65rem;
+  color: var(--oro-titulo);
+  content: '·';
+}
+
+.relato__texto {
+  position: relative;
+  width: 100%;
+}
+
+.relato__rombo {
+  position: absolute;
+  top: 50%;
+  left: -2.12rem;
+  width: 10px;
+  height: 10px;
+  translate: 0 -50%;
+  rotate: 45deg;
+  border: 1px solid var(--linea);
+  transition: background-color 0.4s var(--salida), border-color 0.4s var(--salida), box-shadow 0.4s var(--salida);
+  background: transparent;
+}
+
+.relato__capitulo--activo .relato__rombo {
+  border-color: var(--oro-titulo);
+  background: var(--oro-titulo);
+  box-shadow: 0 0 0.9rem rgb(226 179 64 / .35);
+}
+
+.relato__numero {
+  display: block;
+  margin-bottom: 1rem;
+  color: var(--oro);
+  font: 400 0.85rem/1.3 var(--fuente-hero);
+  letter-spacing: 0.3em;
+}
+
+.relato__texto h2 {
+  color: var(--tinta);
+  font: 600 clamp(1.8rem, 3.2vw, 2.6rem)/1.12 var(--fuente-hero);
+}
+
+.relato__texto > p {
+  max-width: 34rem;
+  margin: 1.25rem 0 0;
+  color: var(--tinta-suave);
+  font: 400 1.2rem/1.75 var(--fuente-texto);
+}
+
+.relato__visual-sticky {
+  display: none;
+}
+
+@media (min-width: 960px) {
+  .relato__cuerpo {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    align-items: start;
+  }
+
+  .relato__capitulo {
+    min-height: 90vh;
+  }
+
+  .relato--animado .relato__visual-capitulo {
+    display: none;
+  }
+
+  .relato--animado .relato__visual-sticky {
+    position: sticky;
+    top: calc(var(--alto-cabecera) + 2rem);
+    display: block;
+    height: calc(100vh - var(--alto-cabecera) - 4rem);
+  }
+
+  .relato__visual-sticky > .relato__marco {
+    height: 100%;
+    aspect-ratio: auto;
+  }
+
+  .relato__capa {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform-origin: center;
+  }
+
+  .relato__capa--activa {
+    opacity: 1;
+  }
+
+  .relato__capa > .relato__imagen,
+  .relato__capa > .relato__marcador,
+  .relato__capa > .relato__escudo {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .relato__desliza svg {
+    transform: none;
+  }
+
+  .relato__visual-sticky {
+    display: none !important;
+  }
+
+  .relato__visual-capitulo {
+    display: block !important;
+  }
+
+  .relato__roles {
+    opacity: 1 !important;
+  }
+}
+
+@media (max-width: 959px) {
+  .relato__capitulos {
+    margin-left: 0;
+  }
+
+  .relato__capitulo {
+    display: block;
+    min-height: 0;
+    padding: 0 0 4rem 2.5rem;
+  }
+
+  .relato__capitulo:last-child {
+    padding-bottom: 0;
+  }
+
+  .relato__visual-capitulo {
+    display: block;
+  }
+
+  .relato__texto {
+    padding-top: 0.5rem;
+  }
+
+  .relato__rombo {
+    top: 1.1rem;
+    left: -2.12rem;
+  }
+}

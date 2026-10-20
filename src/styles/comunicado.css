@@ -1,0 +1,312 @@
+.comunicado {
+  padding: clamp(4rem, 9vw, 7rem) var(--gutter);
+  background: var(--negro);
+}
+
+.comunicado__escena {
+  position: relative;
+  width: min(100%, 44rem);
+  margin-inline: auto;
+}
+
+.comunicado__pliego {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: inherit;
+  cursor: pointer;
+  transition: transform 240ms var(--salida);
+}
+
+.comunicado__pliego:disabled {
+  cursor: default;
+}
+
+.comunicado__pliego:hover:not(:disabled),
+.comunicado__pliego:focus-visible {
+  transform: translateY(-3px);
+}
+
+.comunicado__contenedor {
+  position: relative;
+  display: block;
+  height: clamp(9rem, 22vw, 12rem);
+  perspective: 1400px;
+  transform-style: preserve-3d;
+}
+
+.comunicado__panel {
+  position: absolute;
+  inset-inline: 0;
+  height: clamp(9rem, 22vw, 12rem);
+  transform-style: preserve-3d;
+}
+
+.comunicado__panel--superior {
+  top: calc(clamp(9rem, 22vw, 12rem) * -1);
+  transform: rotateX(-180deg);
+  transform-origin: bottom;
+  z-index: 2;
+}
+
+.comunicado__panel--centro {
+  top: 0;
+  z-index: 1;
+}
+
+.comunicado__panel--inferior {
+  top: clamp(9rem, 22vw, 12rem);
+  transform: rotateX(180deg);
+  transform-origin: top;
+  z-index: 0;
+}
+
+.comunicado__cara {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  backface-visibility: hidden;
+  border: 1px solid #c4ad80;
+  border-radius: 3px;
+  box-shadow: 0 0.75rem 1.5rem rgb(0 0 0 / .3);
+  background:
+    radial-gradient(ellipse at center, transparent 55%, rgb(120 84 40 / .22) 100%),
+    repeating-linear-gradient(135deg, rgb(120 84 40 / .025) 0 1px, transparent 1px 5px),
+    #ece3cf;
+  color: #3b2412;
+}
+
+.comunicado__cara--dorso {
+  transform: rotateX(180deg);
+}
+
+.comunicado__cara--dorso::after {
+  position: absolute;
+  inset: 11px;
+  border: 1px solid rgb(120 84 40 / .35);
+  content: '';
+  pointer-events: none;
+}
+
+.comunicado__rotulo {
+  padding: 1.25rem 1rem 0;
+  font: 600 0.8rem/1.4 var(--fuente-hero);
+  letter-spacing: 0.2em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.comunicado__pista {
+  padding: 0.4rem 1rem 0;
+  color: #6b4a2a;
+  font: italic 1rem/1.3 var(--fuente-texto);
+  text-align: center;
+}
+
+.comunicado__sello {
+  position: absolute;
+  z-index: 4;
+  top: calc(100% - 3.25rem);
+  left: 50%;
+  display: block;
+  width: 6.5rem;
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  transform-origin: center;
+  filter: drop-shadow(0 0.3rem 0.35rem rgb(0 0 0 / .4));
+}
+
+.comunicado__sello-mitad {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.comunicado__sello-mitad--izq {
+  clip-path: polygon(0 0, 54% 0, 47% 14%, 56% 26%, 45% 38%, 55% 50%, 45% 62%, 56% 74%, 46% 86%, 54% 100%, 0 100%);
+}
+
+.comunicado__sello-mitad--der {
+  clip-path: polygon(54% 0, 100% 0, 100% 100%, 54% 100%, 46% 86%, 56% 74%, 45% 62%, 55% 50%, 45% 38%, 56% 26%, 47% 14%);
+}
+
+.comunicado__sello-dibujo {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.comunicado__sello-mitad img {
+  position: absolute;
+  inset: 22.5%;
+  width: 55%;
+  height: 55%;
+  object-fit: contain;
+}
+
+.comunicado__pliego:hover:not(:disabled) .comunicado__sello,
+.comunicado__pliego:focus-visible .comunicado__sello {
+  animation: comunicado-latido 1.2s ease-in-out infinite;
+}
+
+@keyframes comunicado-latido {
+  0%,
+  100% { scale: 1; }
+  50% { scale: 1.04; }
+}
+
+.comunicado__hoja {
+  position: relative;
+  padding: clamp(2rem, 6vw, 3.75rem);
+  border: 1px solid #c4ad80;
+  border-radius: 3px;
+  outline: 1px solid rgb(120 84 40 / .35);
+  outline-offset: -12px;
+  background:
+    radial-gradient(ellipse at center, transparent 55%, rgb(120 84 40 / .22) 100%),
+    repeating-linear-gradient(135deg, rgb(120 84 40 / .025) 0 1px, transparent 1px 5px),
+    #ece3cf;
+  box-shadow: 0 1.5rem 3rem rgb(0 0 0 / .55);
+  color: #3b2412;
+}
+
+.comunicado__hoja[hidden] {
+  display: none;
+}
+
+.comunicado__escena--abriendo .comunicado__hoja {
+  position: absolute;
+  inset: 0 0 auto;
+}
+
+.comunicado__cruz {
+  width: 3.5rem;
+  height: 3.5rem;
+  margin: 0 auto 1.5rem;
+}
+
+.comunicado__cruz svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.comunicado__cruz-silueta {
+  fill: #3b2412;
+}
+
+.comunicado__cruz-filete {
+  fill: none;
+  stroke: #c99a2e;
+  stroke-width: 1.2px;
+}
+
+.comunicado__hoja h2 {
+  color: #3b2412;
+  font: 600 clamp(1.6rem, 4vw, 2.3rem)/1.18 var(--fuente-hero);
+  text-align: center;
+  text-wrap: balance;
+}
+
+.comunicado__filete {
+  width: 5rem;
+  height: 2px;
+  margin: 1.5rem auto 2rem;
+  background: linear-gradient(90deg, transparent, #c99a2e, transparent);
+}
+
+.comunicado__parrafos {
+  max-width: 60ch;
+  margin-inline: auto;
+  color: #3b2412;
+  font: 400 1.18rem/1.75 var(--fuente-texto);
+}
+
+.comunicado__parrafo {
+  max-width: none;
+  margin: 0 0 1.1em;
+  text-align: left;
+}
+
+.comunicado__parrafo--primero::first-letter {
+  float: left;
+  padding: 0.06em 0.12em 0 0;
+  color: #8a4b1c;
+  font: 600 3.2em/0.82 var(--fuente-hero);
+}
+
+.comunicado__parrafo strong {
+  font-weight: 600;
+}
+
+.comunicado__divisor {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 60ch;
+  margin: 2rem auto;
+  color: #8a4b1c;
+}
+
+.comunicado__divisor::before,
+.comunicado__divisor::after {
+  flex: 1;
+  height: 1px;
+  background: rgb(138 75 28 / .35);
+  content: '';
+}
+
+.comunicado__divisor svg {
+  width: 1rem;
+  height: 1rem;
+  fill: currentColor;
+}
+
+.comunicado__cierre {
+  max-width: 38ch;
+  margin: 0 auto 0.8rem;
+  color: #8a4b1c;
+  font: 600 clamp(1.1rem, 2.6vw, 1.45rem)/1.4 var(--fuente-hero);
+  text-align: center;
+  text-wrap: balance;
+}
+
+.comunicado__lema {
+  max-width: 48ch;
+  margin: 0 auto;
+  color: #6b4a2a;
+  font: italic 1.05rem/1.55 var(--fuente-texto);
+  text-align: center;
+  text-wrap: balance;
+}
+
+@media (max-width: 30rem) {
+  .comunicado__sello {
+    top: calc(100% - 2.75rem);
+    width: 5.5rem;
+  }
+
+  .comunicado__hoja {
+    padding: 1.75rem;
+  }
+
+  .comunicado__parrafo--primero::first-letter {
+    font-size: 2.4em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .comunicado__pliego:hover:not(:disabled) .comunicado__sello,
+  .comunicado__pliego:focus-visible .comunicado__sello {
+    animation: none;
+  }
+
+  .comunicado__pliego {
+    transition: none;
+  }
+}

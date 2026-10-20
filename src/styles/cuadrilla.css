@@ -1,0 +1,406 @@
+/* ───────── Escenario de personajes ───────── */
+.escenario {
+  padding-bottom: clamp(3rem, 7vw, 5rem);
+}
+
+.escenario__contenido {
+  display: grid;
+  gap: 2rem;
+  max-width: 76rem;
+  margin-inline: auto;
+}
+
+.escenario__marco {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  border: 1px solid rgb(226 179 64 / .25);
+  border-radius: 4px;
+  background: var(--negro-alto);
+  touch-action: pan-y;
+}
+
+.escenario__imagen {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.escenario__imagen[aria-hidden='true'] {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.escenario__texto {
+  min-width: 0;
+  align-self: center;
+}
+
+.escenario__numero {
+  margin: 0 0 0.8rem;
+  color: var(--oro);
+  font: 400 0.8rem/1.3 var(--fuente-hero);
+  letter-spacing: 0.25em;
+}
+
+.escenario__nombre {
+  color: var(--oro-titulo);
+  font: 600 clamp(2.6rem, 6vw, 4.5rem)/1.05 var(--fuente-hero);
+}
+
+.escenario__letra {
+  display: inline-block;
+}
+
+.escenario__filete {
+  display: block;
+  width: 3.5rem;
+  height: 2px;
+  margin: 1.25rem 0;
+  background: var(--oro-titulo);
+}
+
+.escenario__descripcion {
+  max-width: 34rem;
+  margin: 0;
+  color: var(--tinta-suave);
+  font: 400 1.25rem/1.75 var(--fuente-texto);
+}
+
+.escenario__controles {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: 1.5rem;
+}
+
+.escenario__flecha,
+.escenario__pausa,
+.integrantes__dialogo-nav button,
+.integrantes__cerrar {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--linea);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--tinta);
+  cursor: pointer;
+}
+
+.escenario__flecha:hover,
+.escenario__pausa:hover,
+.integrantes__dialogo-nav button:hover:not(:disabled),
+.integrantes__cerrar:hover {
+  border-color: var(--oro-titulo);
+  color: var(--oro-titulo);
+}
+
+.escenario__flecha svg,
+.escenario__pausa svg,
+.integrantes__dialogo-nav svg,
+.integrantes__cerrar svg {
+  width: 1.3rem;
+  height: 1.3rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.6px;
+}
+
+.escenario__pausa[hidden] {
+  display: none;
+}
+
+.escenario__desfile {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  max-width: 76rem;
+  margin: 1.5rem auto 0;
+  padding: 0.5rem 0.25rem 1rem;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.escenario__desfile::-webkit-scrollbar {
+  display: none;
+}
+
+.escenario__tab {
+  display: grid;
+  min-width: 76px;
+  min-height: 88px;
+  justify-items: center;
+  align-content: start;
+  gap: 0.45rem;
+  padding: 0 0.25rem;
+  border: 0;
+  background: transparent;
+  color: var(--tinta-suave);
+  cursor: pointer;
+  opacity: 0.72;
+  scroll-snap-align: center;
+  transition: opacity 0.25s var(--salida), transform 0.25s var(--salida);
+}
+
+.escenario__tab:hover,
+.escenario__tab:focus-visible,
+.escenario__tab[aria-selected='true'] {
+  opacity: 1;
+}
+
+.escenario__tab[aria-selected='true'] {
+  color: var(--oro-titulo);
+  transform: scale(1.08);
+}
+
+.escenario__tab img {
+  width: 64px;
+  height: 64px;
+  border: 1px solid var(--linea);
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.escenario__tab[aria-selected='true'] img {
+  border-color: var(--oro-titulo);
+}
+
+.escenario__tab span {
+  max-width: 8rem;
+  font: 400 0.7rem/1.2 var(--fuente-hero);
+  text-align: center;
+}
+
+/* ───────── Integrantes ───────── */
+.integrantes {
+  padding-bottom: clamp(4rem, 9vw, 7rem);
+}
+
+.integrantes__intro {
+  max-width: 42rem;
+  margin: -1rem 0 1.5rem;
+  color: var(--tinta-suave);
+}
+
+.integrantes__filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 2rem;
+}
+
+.integrantes__filtro {
+  min-height: 44px;
+  padding: 0.55rem 1rem;
+  border: 1px solid var(--linea);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--tinta);
+  font: 600 0.75rem/1.2 var(--fuente-hero);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.integrantes__filtro:hover,
+.integrantes__filtro:focus-visible {
+  border-color: var(--oro-titulo);
+}
+
+.integrantes__filtro[aria-pressed='true'] {
+  border-color: var(--oro-titulo);
+  background: var(--oro-titulo);
+  color: var(--negro);
+}
+
+.integrantes__grilla {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(14rem, 100%), 1fr));
+  gap: 1.5rem;
+}
+
+.integrantes__tarjeta {
+  display: grid;
+  align-content: start;
+  gap: 0.5rem;
+  min-width: 0;
+  padding: 0 0 0.75rem;
+  overflow: hidden;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--tinta);
+  text-align: left;
+  cursor: pointer;
+}
+
+.integrantes__tarjeta:hover,
+.integrantes__tarjeta:focus-visible {
+  border-color: var(--oro-titulo);
+}
+
+.integrantes__tarjeta img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 25%;
+  transition: transform 0.45s var(--salida);
+}
+
+.integrantes__tarjeta:hover img,
+.integrantes__tarjeta:focus-visible img {
+  transform: scale(1.04);
+}
+
+.integrantes__nombre,
+.integrantes__rol {
+  padding-inline: 0.85rem;
+}
+
+.integrantes__nombre {
+  margin-top: 0.35rem;
+  font: 600 1.05rem/1.3 var(--fuente-hero);
+}
+
+.integrantes__rol {
+  color: var(--oro-titulo);
+  font: italic 1.05rem/1.3 var(--fuente-texto);
+}
+
+.integrantes--revelando .integrantes__tarjeta {
+  opacity: 0;
+}
+
+.integrantes__dialogo {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  padding: 1rem;
+  border: 0;
+  background: transparent;
+  color: var(--tinta);
+  place-items: center;
+}
+
+.integrantes__dialogo[open] {
+  display: grid;
+}
+
+.integrantes__dialogo::backdrop {
+  background: rgb(0 0 0 / .75);
+  backdrop-filter: blur(4px);
+}
+
+.integrantes__dialogo-panel {
+  position: relative;
+  display: grid;
+  width: min(100%, 52rem);
+  max-height: min(92svh, 50rem);
+  overflow: auto;
+  border: 1px solid rgb(226 179 64 / .3);
+  border-radius: 4px;
+  background: var(--negro-alto);
+  box-shadow: 0 1.5rem 4rem rgb(0 0 0 / .45);
+}
+
+.integrantes__cerrar {
+  position: absolute;
+  z-index: 1;
+  top: 0.75rem;
+  right: 0.75rem;
+  border-color: rgb(248 242 234 / .55);
+  background: var(--negro);
+}
+
+.integrantes__dialogo-foto {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 25%;
+}
+
+.integrantes__dialogo-texto {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.integrantes__dialogo-texto h2 {
+  padding-right: 2rem;
+  color: var(--oro-titulo);
+  font: 600 clamp(1.6rem, 3vw, 2.2rem)/1.15 var(--fuente-hero);
+}
+
+.integrantes__dialogo-rol {
+  margin: 0.6rem 0 1rem;
+  color: var(--oro-titulo);
+  font: italic 1.15rem/1.4 var(--fuente-texto);
+}
+
+.integrantes__resena {
+  margin: 0;
+  color: var(--tinta-suave);
+  font: 400 1.15rem/1.75 var(--fuente-texto);
+}
+
+.integrantes__dialogo-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: auto;
+  padding-top: 1.5rem;
+  color: var(--tinta-suave);
+  font: 400 0.85rem/1.2 var(--fuente-hero);
+}
+
+.integrantes__dialogo-nav button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (min-width: 900px) {
+  .escenario__contenido {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(2rem, 5vw, 5rem);
+  }
+
+  .escenario__marco {
+    height: min(70vh, 40rem);
+    aspect-ratio: 3 / 4;
+  }
+
+  .escenario__desfile {
+    justify-content: center;
+    gap: 1.1rem;
+    overflow: visible;
+  }
+
+  /* La foto mantiene su 4:5 para no recortar el nombre impreso en ella. */
+  .integrantes__dialogo-panel {
+    grid-template-columns: 24rem minmax(0, 1fr);
+  }
+
+  .integrantes__dialogo-foto {
+    align-self: start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .escenario__tab,
+  .integrantes__tarjeta img {
+    transition: none;
+  }
+}
