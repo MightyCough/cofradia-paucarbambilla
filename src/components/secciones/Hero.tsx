@@ -11,8 +11,14 @@ export function Hero() {
     <section className="hero" aria-labelledby="hero-titulo">
       <img
         className="hero__foto"
-        src="/assets/image1.jpg"
+        src="/assets/fotos/image1-1600.webp"
+        srcSet="/assets/fotos/image1-900.webp 900w, /assets/fotos/image1-1600.webp 1600w"
+        sizes="100vw"
+        width={1600}
+        height={1066}
         alt="La cuadrilla de negritos bailando por una calle de Huánuco"
+        fetchPriority="high"
+        decoding="async"
       />
       <motion.div
         className="hero__copia"
